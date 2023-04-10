@@ -59,9 +59,9 @@
 
     <!-- Run Rviz -->
     <node pkg="rviz" type="rviz" name="rviz" respawn="false" output="screen"
-        args="-d $(find laikago_navigation)/rviz/start_mapping.rviz" />
+        args="-d $(find unitree_navigation)/rviz/normal.rviz" />
 
     <!-- Broadcast base_footprint frame -->
-    <node pkg="my_broadcaster" type="my_broadcaster_node" name="my_broadcaster_node" />
+    <node pkg="unitree_broadcaster" type="unitree_broadcaster_node" name="unitree_broadcaster_node" />
 
 </launch>
