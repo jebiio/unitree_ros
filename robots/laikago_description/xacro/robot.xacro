@@ -2,33 +2,60 @@
 
 <robot name="laikago" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:arg name="DEBUG" default="false"/>
+    <xacro:arg name="DEBUG" default="false" />
 
-    <xacro:include filename="$(find laikago_description)/xacro/const.xacro"/>
-    <xacro:include filename="$(find laikago_description)/xacro/materials.xacro"/>
-    <xacro:include filename="$(find laikago_description)/xacro/leg.xacro"/>
-    <xacro:include filename="$(find laikago_description)/xacro/gazebo.xacro"/>
+    <xacro:include filename="$(find laikago_description)/xacro/const.xacro" />
+    <xacro:include filename="$(find laikago_description)/xacro/materials.xacro" />
+    <xacro:include filename="$(find laikago_description)/xacro/leg.xacro" />
+    <xacro:include filename="$(find laikago_description)/xacro/gazebo.xacro" />
     
     <!-- Rollover Protection mode will add an additional stick on the top, use "true" or "false" to switch it. -->
-    <xacro:property name="rolloverProtection" value="false"/>
+    <xacro:property name="rolloverProtection" value="false" />
 
     <!-- Debug mode will hung up the robot, use "true" or "false" to switch it. -->
     <xacro:if value="$(arg DEBUG)">
-        <link name="world"/>
+        <link name="world" />
         <joint name="base_static_joint" type="fixed">
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <parent link="world"/>
-            <child link="base"/>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <parent link="world" />
+            <child link="base" />
         </joint>
     </xacro:if> 
 
     <link name="base">
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <box size="0.001 0.001 0.001"/>
+                <box size="0.001 0.001 0.001" />
             </geometry>
         </visual>
+    </link>
+
+    <joint name='lidar_joint' type='fixed'>
+        <parent link="base" />
+        <child link="lidar_link" />
+        <origin rpy="0 0 0" xyz="0 0 0.15" />
+    </joint>
+
+    <link name='lidar_link'>
+        <inertial>
+            <mass value="0.001" />
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+        </inertial>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <box size="0.001 0.001 0.001" />
+            </geometry>
+            <material name="red" />
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <box size=".001 .001 .001" />
+            </geometry>
+        </collision>
     </link>
 
     <joint name="floating_base" type="fixed">
@@ -57,7 +84,7 @@
             <inertia
                 ixx="${trunk_ixx}" ixy="${trunk_ixy}" ixz="${trunk_ixz}"
                 iyy="${trunk_iyy}" iyz="${trunk_iyz}"
-                izz="${trunk_izz}"/>  
+                izz="${trunk_izz}"/>
         </inertial>
     </link>
 
@@ -87,7 +114,7 @@
                 <inertia
                     ixx="${stick_mass / 2.0 * (stick_radius*stick_radius)}" ixy="0.0" ixz="0.0"
                     iyy="${stick_mass / 12.0 * (3*stick_radius*stick_radius + stick_length*stick_length)}" iyz="0.0"
-                    izz="${stick_mass / 12.0 * (3*stick_radius*stick_radius + stick_length*stick_length)}"/>                   
+                    izz="${stick_mass / 12.0 * (3*stick_radius*stick_radius + stick_length*stick_length)}"/>
             </inertial>
         </link>
     </xacro:if> 
