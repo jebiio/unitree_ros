@@ -57,11 +57,4 @@
         <arg name="rname" value="$(arg rname)" />
     </include>
 
-    <!-- Run Rviz -->
-    <node pkg="rviz" type="rviz" name="rviz" respawn="false" output="screen"
-        args="-d $(find unitree_navigation)/rviz/normal.rviz" />
-
-    <!-- Broadcast base_footprint frame -->
-    <node pkg="unitree_broadcaster" type="unitree_broadcaster_node" name="unitree_broadcaster_node" />
-
 </launch>
