@@ -1,10 +1,12 @@
 <launch>
+    <arg name="rviz_config" default="localization.rviz" />
 
+    <!-- Run Simulation-->
     <include file="$(find unitree_gazebo)/launch/my_normal.launch" />
 
     <!-- Run Rviz -->
     <node pkg="rviz" type="rviz" name="rviz" respawn="false" output="screen"
-        args="-d $(find unitree_navigation)/rviz/start_mapping.rviz" />
+        args="-d $(find unitree_navigation)/rviz/$(arg rviz_config)" />
 
     <!-- Broadcast base_footprint frame -->
     <node pkg="unitree_broadcaster" type="unitree_broadcaster_node" name="unitree_broadcaster_node" />

@@ -59,3 +59,6 @@ target_link_libraries(unitree_move_kinetic ${catkin_LIBRARIES})
 
 add_executable(unitree_teleop src/unitree_teleop.cpp)
 target_link_libraries(unitree_teleop ${catkin_LIBRARIES})
+
+add_executable(unitree_base_control src/unitree_base_control.cpp)
+target_link_libraries(unitree_base_control ${catkin_LIBRARIES})
