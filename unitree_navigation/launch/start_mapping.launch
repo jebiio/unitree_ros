@@ -10,7 +10,6 @@
     <node pkg="unitree_broadcaster" type="unitree_broadcaster_node" name="unitree_broadcaster_node" />
 
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
-
         <remap from="scan" to="/laser/scan" />
         <param name="base_frame" value="base_footprint" />
         <param name="odom_frame" value="odom" />
@@ -45,4 +44,5 @@
         <param name="lasamplestep" value="0.005" />
         <param name="throttle_scans" value="1" />
     </node>
+
 </launch>
