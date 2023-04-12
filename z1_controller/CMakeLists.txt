@@ -32,11 +32,10 @@ add_library(${PROJECT_NAME}
     src/unitreeArm.cpp 
 )
 
-add_dependencies(${PROJECT_NAME} unitree_legged_msgs_gencpp)
-
 target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES} ${EXTRA_LIBS}
 )
 
 add_executable(unitree_move_z1 src/basic.cpp)
 target_link_libraries(unitree_move_z1 ${PROJECT_NAME} ${catkin_LIBRARIES})
+add_dependencies(unitree_move_z1 unitree_legged_msgs_generate_messages_cpp)
