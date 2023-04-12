@@ -22,7 +22,7 @@ catkin build
 ```bash
 cd ~/catkin_ws
 . devel/setup.bash
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/unitree_ros/unitree_gazebo/worlds/building_editor/models
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/unitree_ros/unitree_gazebo/worlds/building_editor_models
 ```
 
 ## Rviz에서 모델 확인하기
