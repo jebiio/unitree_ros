@@ -18,16 +18,17 @@ catkin build
 * laikago
 * z1
 
+## 환경설정
+```bash
+cd ~/catkin_ws
+. devel/setup.bash
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/unitree_ros/unitree_gazebo/worlds/building_editor/models
+```
+
 ## Rviz에서 모델 확인하기
 ```bash
 roslaunch laikago_description laikago_rviz.launch
 #roslaunch laikago_description <model_name>_rviz.launch
-```
-
-```xml
-<include>
-    <uri>model:///home/unitree/catkin_ws/src/unitree_ros/unitree_gazebo/worlds/building_editor_models/stairs</uri>
-</include>
 ```
 
 ## gazebo simulation
