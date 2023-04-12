@@ -81,7 +81,7 @@ void UnitreeTeleop::pubForce(double x, double y, double z, double ax, double ay,
     }
 
     gazebo_msgs::SetModelState set_model_state;
-    set_model_state.request.model_state.model_name = "laikago_gazebo";
+    set_model_state.request.model_state.model_name = robot_name;
     set_model_state.request.model_state.reference_frame = "base";
     // set_model_state.request.model_state.pose = get_model_state.response.pose;
     set_model_state.request.model_state.twist.linear.x = x;
