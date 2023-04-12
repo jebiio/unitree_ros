@@ -31,12 +31,6 @@ roslaunch laikago_description laikago_rviz.launch
 #roslaunch laikago_description <model_name>_rviz.launch
 ```
 
-```xml
-<include>
-    <uri>model:///home/unitree/catkin_ws/src/unitree_ros/unitree_gazebo/worlds/building_editor_models/stairs</uri>
-</include>
-```
-
 ## gazebo simulation
 ```bash
 roslaunch unitree_gazebo my_normal.launch
